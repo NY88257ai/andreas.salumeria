@@ -224,6 +224,41 @@
       background: #fff;
     }
 
+/* ========== COUNTER CAROUSEL ========== */
+
+.counter-section {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.carousel-image {
+  width: 80%;
+  max-width: 650px;
+  border-radius: 12px;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.carousel-arrow {
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: #4A281E;
+  transition: 0.2s ease;
+}
+
+.carousel-arrow:hover {
+  color: #D22D2B;
+}
+    
     /* ========== VISIT / CONTACT (MODERNIZED) ========== */
     #visit {
       background: #fbf7f0;
@@ -427,19 +462,24 @@
     </div>
   </section>
 
-  <!-- ========== GALLERY (MODERNIZED) ========== -->
-  <section id="gallery">
-    <div class="container">
-      <h2>From the Counter & Kitchen</h2>
-      <p class="section-intro">
-        A glimpse of the sandwiches, specialties, and moments that make Andrea’s Salumeria a neighborhood favorite.
-        New photos appear here as they’re added to our gallery.
-      </p>
+  <!-- ========== FROM THE COUNTER & KITCHEN ========== -->
+<section id="gallery" class="counter-section">
+  <div class="container">
+    <h2>From the Counter & Kitchen</h2>
+    <p class="section-intro">
+      A glimpse of the sandwiches, specialties, and moments that make Andrea’s Salumeria a neighborhood favorite.
+      New photos appear here as they’re added to our gallery.
+    </p>
 
-      <!-- Dynamic gallery grid -->
-      <div id="gallery-grid" class="gallery-grid"></div>
+    <div class="carousel-container">
+      <button class="carousel-arrow left" onclick="prevCounterImage()">&#10094;</button>
+
+      <img id="counter-image" class="carousel-image" src="" alt="From the Counter">
+
+      <button class="carousel-arrow right" onclick="nextCounterImage()">&#10095;</button>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- ========== VISIT / CONTACT (MODERNIZED) ========== -->
   <section id="visit">
@@ -456,7 +496,7 @@
           <div class="info-label">Address</div>
           <div class="info-value">
             Andrea's Salumeria<br>
-            247 Central Ave #A<br>
+            247 Central Ave<br>
             Jersey City, NJ 07307
           </div>
 
@@ -503,9 +543,9 @@
         <div>
           <div class="info-label">Hours</div>
           <div class="info-value">
-            Monday – Friday: [Hours]<br>
-            Saturday: [Hours]<br>
-            Sunday: [Hours / Closed]
+            Monday – Friday: 8:00AM–6:00PM<br>
+            Saturday: 8:00AM–5:00PM<br>
+            Sunday: Closed
           </div>
 
           <div class="info-label" style="margin-top:1.25rem;">Services</div>
@@ -540,7 +580,7 @@
       <div id="footer-rotator" class="footer-rotator"></div>
 
       <div class="footer-copy">
-        © Andrea’s Salumeria • 247 Central Ave #A, Jersey City, NJ • Since 1975
+        © Andrea’s Salumeria • 247 Central Ave, Jersey City, NJ • Since 1975
       </div>
 
     </div>
@@ -636,7 +676,41 @@ async function loadGallery() {
 
 loadGallery();
 
+/* ============================================================
+   LOAD IMAGES FROM manifest.json FOR COUNTER CAROUSEL
+============================================================ */
 
+let counterImages = [];
+let counterIndex = 0;
+
+// Load manifest.json
+fetch("manifest.json")
+  .then(response => response.json())
+  .then(data => {
+    counterImages = data.gallery; // Pull gallery array
+    updateCounterImage();         // Show first image
+  });
+
+function updateCounterImage() {
+  const img = document.getElementById("counter-image");
+  img.style.opacity = 0;
+
+  setTimeout(() => {
+    img.src = counterImages[counterIndex];
+    img.style.opacity = 1;
+  }, 200);
+}
+
+function nextCounterImage() {
+  counterIndex = (counterIndex + 1) % counterImages.length;
+  updateCounterImage();
+}
+
+function prevCounterImage() {
+  counterIndex = (counterIndex - 1 + counterImages.length) % counterImages.length;
+  updateCounterImage();
+}
+  
 /* ============================================================
    FOOTER ROTATOR — reuses gallery images
 ============================================================ */
@@ -711,4 +785,5 @@ window.matchMedia("(prefers-color-scheme: dark)")
 </script>
 </body>
 </html>
+
 
