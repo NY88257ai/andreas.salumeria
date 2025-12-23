@@ -1,333 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    Andrea's Salumeria — Version B2 (Fully Modernized)
-    - Larger centered hero
-    - Premium spacing & typography
-    - Dynamic hero, gallery, footer rotator
-    - Collapsible sandwich menu
-    - Signage-ready layout
-  -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Andrea’s Salumeria | Fine Italian Salumeria</title>
+  <title>Andrea’s Salumeria • Jersey City, NJ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    /* ========== BASE RESET ========== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ========== HEADER ========== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <img id="site-logo" src="photos/logo/andreas-header-light.png" alt="Andrea’s Salumeria Logo">
+      <nav class="main-nav">
+        <a href="#about">About</a>
+        <a href="#counter">From the Counter</a>
+        <a href="#visit">Visit</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f7f1e7;
-      color: #3c2b21;
-      line-height: 1.65;
-    }
+  <!-- ========== HERO SLIDESHOW ========== -->
+  <section class="hero">
+    <div class="hero-slides">
+      <!-- Use your hero images from photos/hero -->
+      <div class="hero-slide active" style="background-image: url('photos/hero/hero1.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('photos/hero/hero2.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('photos/hero/hero3.jpg');"></div>
+      <!-- You can add more: hero4, hero5, etc. -->
+    </div>
+    <div class="hero-overlay">
+      <h1>Andrea’s Salumeria</h1>
+      <p>Since 1975 — Jersey City’s Italian Tradition</p>
+    </div>
+  </section>
 
-    img { max-width: 100%; display: block; }
+  <!-- ========== ABOUT ========== -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2>About Us</h2>
+      <p class="section-intro">
+        For nearly 50 years, Andrea’s Salumeria has been serving fresh mozzarella, handcrafted sandwiches,
+        and classic Italian specialties in the heart of Jersey City. What started as a neighborhood shop
+        has become a destination for anyone who loves honest, old-world Italian food.
+      </p>
+    </div>
+  </section>
 
-    a { color: inherit; text-decoration: none; }
+  <!-- ========== FROM THE COUNTER & KITCHEN (TEXT ONLY) ========== -->
+  <section id="counter" class="counter-section">
+    <div class="container">
+      <h2>From the Counter & Kitchen</h2>
+      <p class="section-intro">
+        Behind every sandwich and platter is a simple approach: quality ingredients, time‑honored methods,
+        and a commitment to feeding people the way family is fed. Fresh mozzarella is pulled daily,
+        imported and domestic meats and cheeses are sliced to order, and prepared dishes are made
+        in small batches for maximum flavor.
+      </p>
+    </div>
+  </section>
 
-    .container {
-      width: 100%;
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-    }
+  <!-- ========== VISIT US ========== -->
+  <section id="visit" class="visit-section">
+    <div class="container">
+      <h2>Visit Us</h2>
+      <p class="visit-address">247 Central Ave, Jersey City, NJ 07307</p>
+      <p class="visit-hours">Tuesday – Saturday • 9:00 AM – 5:00 PM</p>
+    </div>
+  </section>
 
-    h1, h2, h3 {
-      font-family: "Georgia", serif;
-      color: #29160f;
-      letter-spacing: 0.02em;
-    }
+  <!-- ========== GOOGLE MAP ========== -->
+  <section class="map-section">
+    <div class="container">
+      <div class="map-wrapper">
+        <!-- You can replace this src with the exact embed from Google Maps for Andrea’s -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.049132528655!2d-74.052!3d40.748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAndrea%27s%20Salumeria!5e0!3m2!1sen!2sus!4v0000000000"
+          width="100%"
+          height="350"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
 
-    h1 { font-size: 2.6rem; margin-bottom: 1rem; }
-    h2 { font-size: 2rem; margin-bottom: 1.25rem; }
-    h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>Contact</h2>
+      <p class="contact-phone">
+        Phone: <a href="tel:12016531666">(201) 653‑1666</a>
+      </p>
+      <button onclick="openGoogleReview()" class="review-btn">Leave a Google Review</button>
+    </div>
+  </section>
 
-    .section-intro {
-      font-size: 1.05rem;
-      color: #6b5847;
-      max-width: 700px;
-      margin-bottom: 2rem;
-    }
+  <!-- ========== FEATURED VIDEO (YOUTUBE EMBED) ========== -->
+  <section class="video-section">
+    <div class="container">
+      <h2>As Seen on YouTube</h2>
+      <p class="section-intro">
+        Take a closer look at Andrea’s Salumeria through the eyes of our visitors and food lovers.
+      </p>
+      <div class="video-wrapper">
+        <!-- Embed the newer YouTube link -->
+        <iframe
+          src="https://www.youtube.com/embed/fdxy1fB28Jo"
+          title="Andrea’s Salumeria on YouTube"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
 
-    /* ========== HEADER ========== */
-    header {
-      background: #fbf7f0;
-      border-bottom: 1px solid #e0d2c2;
-      text-align: center;
-      padding: 1.5rem 0 1rem;
-    }
+  <!-- ========== SOCIAL MEDIA ========== -->
+  <section class="social-section">
+    <div class="container">
+      <h2>Find Us Online</h2>
+      <div class="social-links">
+        <a href="https://www.instagram.com/andreas_247central/" target="_blank" class="social-link">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=100054514566838" target="_blank" class="social-link">Facebook</a>
+        <a href="https://www.youtube.com/watch?v=8fZQpGYEarg" target="_blank" class="social-link">YouTube Video 1</a>
+        <a href="https://www.youtube.com/watch?v=fdxy1fB28Jo" target="_blank" class="social-link">YouTube Video 2</a>
+        <a href="https://www.yelp.com/biz/andrea-salumeria-jersey-city" target="_blank" class="social-link">Yelp</a>
+        <a href="https://www.google.com/search?sca_esv=a1e1e5d171e0c4e7&sxsrf=AE3TifPNpLQqmJf4xYMKKj8i6-9z2WsZcw:1766528629558&si=AMgyJEuzsz2NflaaWzrzdpjxXXRaJ2hfdMsbe_mSWso6src8sxolecbEQiEI8vPmaUQRdw_KO-uQ3J0158VC9IqjtS9jOyfa00FU-rzStTucujn8FHIdoS9FezDbHabJU-nEfL-648Ju&q=Andrea+Salumeria+Reviews&sa=X&ved=2ahUKEwiq-8z739SRAxUoDHkGHWIEOzQQ0bkNegQIIhAE&biw=1920&bih=919&dpr=1"
+           target="_blank"
+           class="social-link">Google Reviews</a>
+      </div>
+    </div>
+  </section>
 
-    .brand-name {
-      font-size: 2.4rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      color: #7b1b1b;
-      text-transform: uppercase;
-    }
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <h3>Andrea’s Salumeria</h3>
+      <p class="footer-subtitle">Since 1975 • Jersey City, New Jersey</p>
 
-    .brand-tagline {
-      font-size: 1rem;
-      letter-spacing: 0.18em;
-      color: #7b6651;
-      margin-top: 0.25rem;
-      text-transform: uppercase;
-    }
+      <nav class="footer-nav">
+        <a href="#about">About</a>
+        <a href="#visit">Visit</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-    .brand-year {
-      font-size: 0.9rem;
-      color: #9a8269;
-      margin-top: 0.35rem;
-    }
+      <p class="footer-copy">© 2025 Andrea’s Salumeria. All rights reserved.</p>
+    </div>
+  </footer>
 
-    nav {
-      margin-top: 1rem;
-      border-top: 1px solid #e0d2c2;
-      background: #f3e8da;
-    }
+  <!-- Main script -->
+  <script src="script.js"></script>
+</body>
+</html>
 
-    .nav-list {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem 0;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .nav-list a {
-      padding-bottom: 0.15rem;
-      border-bottom: 1px solid transparent;
-    }
-
-    .nav-list a:hover {
-      border-bottom-color: #7b1b1b;
-    }
-
-    /* ========== HERO (MODERNIZED) ========== */
-    #hero {
-      background: #f7f0e5;
-      padding: 3rem 0 4rem;
-      border-bottom: 1px solid #e0d2c2;
-    }
-
-    .hero-inner {
-      text-align: center;
-      max-width: 820px;
-      margin: 0 auto 2.5rem;
-    }
-
-    .hero-inner p {
-      font-size: 1.1rem;
-      color: #5f4c3b;
-      margin-bottom: 1rem;
-    }
-
-    #hero-visual {
-      width: 100%;
-      max-width: 900px;
-      height: 420px;
-      margin: 0 auto;
-      border-radius: 16px;
-      background-size: cover;
-      background-position: center;
-      background-color: #d3c2af;
-      opacity: 0;
-      transition: opacity 0.9s ease-in-out;
-    }
-
-    .hero-visual--active {
-      animation: heroZoom 7s ease-in-out forwards;
-    }
-
-    @keyframes heroZoom {
-      0% { transform: scale(1); opacity: 0.6; }
-      100% { transform: scale(1.06); opacity: 1; }
-    }
-
-    /* ========== MENU (MODERNIZED) ========== */
-    #sandwiches {
-      background: #fbf7f0;
-      padding: 4rem 0;
-      border-bottom: 1px solid #e0d2c2;
-    }
-
-    .menu-columns {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 3rem;
-    }
-
-    @media (max-width: 900px) {
-      .menu-columns { grid-template-columns: 1fr; }
-    }
-
-    .sandwich-collapse {
-      border: 1px solid #e2d3c1;
-      border-radius: 12px;
-      padding: 1.25rem;
-      background: #fffdf8;
-    }
-
-    .sandwich-summary {
-      cursor: pointer;
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .sandwich-summary-sub {
-      font-size: 0.9rem;
-      color: #7b6651;
-      font-weight: 400;
-    }
-
-    .menu-category-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-top: 1.25rem;
-      margin-bottom: 0.5rem;
-      color: #6b3a21;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .menu-item {
-      margin-bottom: 0.75rem;
-    }
-
-    .menu-item-name { font-weight: 600; }
-    .menu-item-desc { font-size: 0.95rem; color: #6d5743; }
-    .menu-item-price { font-size: 0.95rem; color: #7b1b1b; font-weight: 600; }
-
-    /* ========== GALLERY (MODERNIZED) ========== */
-    #gallery {
-      background: #f7f1e7;
-      padding: 4rem 0;
-      border-bottom: 1px solid #e0d2c2;
-    }
-
-/* ========== COUNTER CAROUSEL ========== */
-
-.counter-section {
-  text-align: center;
-  padding: 60px 20px;
+/* ========== styles.css - GLOBAL RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.carousel-container {
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #F5EFE6; /* warm beige */
+  color: #4A281E;      /* warm brown */
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+/* ========== CONTAINER ========== */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ========== HEADER ========== */
+.site-header {
+  background: #F5EFE6;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  gap: 25px;
-  margin-top: 30px;
 }
 
-.carousel-image {
-  width: 80%;
-  max-width: 650px;
-  border-radius: 12px;
-  transition: opacity 0.4s ease-in-out;
+#site-logo {
+  height: 60px;
 }
 
-.carousel-arrow {
-  background: none;
-  border: none;
-  font-size: 2.5rem;
-  cursor: pointer;
+.main-nav a {
+  margin-left: 24px;
+  text-decoration: none;
   color: #4A281E;
-  transition: 0.2s ease;
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
-.carousel-arrow:hover {
+.main-nav a:hover {
   color: #D22D2B;
 }
-    
-    /* ========== VISIT / CONTACT (MODERNIZED) ========== */
-    #visit {
-      background: #fbf7f0;
-      padding: 4rem 0;
-      border-bottom: 1px solid #e0d2c2;
-    }
 
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2.5rem;
-    }
+/* ========== HERO SLIDESHOW ========== */
+.hero {
+  position: relative;
+  height: 60vh;
+  min-height: 380px;
+  overflow: hidden;
+}
 
-    @media (max-width: 960px) {
-      .info-grid { grid-template-columns: 1fr; }
-    }
+.hero-slides {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
 
-    .info-label {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: #7b6651;
-      margin-bottom: 0.35rem;
-    }
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
 
-    .info-value { font-size: 1.05rem; }
+.hero-slide.active {
+  opacity: 1;
+}
 
-    .social-icons {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.55)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #F5EFE6;
+  text-align: center;
+  padding: 0 20px;
+}
 
-    .social-icon { width: 32px; height: 32px; }
+.hero-overlay h1 {
+  font-size: 3rem;
+  letter-spacing: 1px;
+}
 
-    .google-review-btn {
-      margin-top: 1.25rem;
-      padding: 0.6rem 1.1rem;
-      border-radius: 999px;
-      background: #f6e5b7;
-      border: 1px solid #d1b473;
-      font-size: 1rem;
-      cursor: pointer;
-    }
+.hero-overlay p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
 
-    .map-embed {
-      margin-top: 2rem;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
-    }
+/* ========== GENERAL SECTION STYLES ========== */
+section {
+  padding: 60px 0;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.section-intro {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* ========== ABOUT SECTION ========== */
+.about-section {
+  /* uses global defaults */
+}
+
+/* ========== COUNTER SECTION (TEXT ONLY) ========== */
+.counter-section {
+  /* uses global defaults */
+}
+
+/* ========== VISIT SECTION ========== */
+.visit-section {
+  text-align: center;
+}
+
+.visit-address {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.visit-hours {
+  opacity: 0.9;
+}
+
+/* ========== MAP SECTION ========== */
+.map-section {
+  padding-top: 0;
+}
+
+.map-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* ========== CONTACT SECTION ========== */
+.contact-section {
+  text-align: center;
+}
+
+.contact-phone a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.review-btn {
+  background: #D22D2B;
+  color: #fff;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 15px;
+}
+
+.review-btn:hover {
+  background: #b71f1d;
+}
+
+/* ========== VIDEO SECTION ========== */
+.video-section .video-wrapper {
+  margin-top: 25px;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+}
+
+.video-section .video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* ========== SOCIAL SECTION ========== */
+.social-section .social-links {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.social-link {
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(74, 40, 30, 0.25);
+  text-decoration: none;
+  font-size: 0.95rem;
+  background: #FAF4EA;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+.social-link:hover {
+  background: #4A281E;
+  color: #F5EFE6;
+  transform: translateY(-1px);
+}
 
 /* ========== FOOTER ========== */
-
 .site-footer {
   background: #4A281E;
-  color: #F5EDE3;
+  color: #F5EFE6;
   text-align: center;
-  padding: 50px 20px;
-  margin-top: 60px;
+  padding: 40px 20px 32px;
+  margin-top: 40px;
 }
 
 .site-footer h3 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: 5px;
 }
 
 .footer-subtitle {
-  font-size: 1rem;
+  font-size: 0.95rem;
   opacity: 0.85;
-  margin-bottom: 20px;
-}
-
-.footer-nav {
-  margin-bottom: 25px;
+  margin-bottom: 16px;
 }
 
 .footer-nav a {
-  color: #F5EDE3;
-  margin: 0 12px;
+  color: #F5EFE6;
+  margin: 0 10px;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .footer-nav a:hover {
@@ -335,429 +422,79 @@
 }
 
 .footer-copy {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   opacity: 0.7;
+  margin-top: 14px;
 }
 
-<body>
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 12px;
+  }
 
-  <!-- ========== HEADER ========== -->
-<header>
-  <img id="site-logo" 
-       src="photos/logo/andreas-header-light.png" 
-       alt="Andrea's Salumeria Logo"
-       style="max-width: 320px; display:block; margin:0 auto;">
-</header>
+  .hero-overlay h1 {
+    font-size: 2.2rem;
+  }
 
-<nav>
-  <ul class="nav-list">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#sandwiches">Sandwiches</a></li>
-    <li><a href="#gallery">From the Counter</a></li>
-    <li><a href="#visit">Visit</a></li>
-  </ul>
-</nav>
+  .hero-overlay p {
+    font-size: 1rem;
+  }
 
-  <!-- ========== HERO (MODERNIZED) ========== -->
-  <section id="hero">
-    <div class="container">
+  .main-nav a {
+    margin-left: 0;
+    margin: 0 8px;
+  }
 
-      <!-- Centered hero text -->
-      <div class="hero-inner">
-        <h1>Real Italian sandwiches, made the old way.</h1>
-        <p>
-          Prosciutto di Parma, sharp provolone, fresh mozzarella, roasted peppers, salumi, and specialties —
-          stacked high on crusty bread and sliced fresh from the counter.
-        </p>
-        <p class="hero-note">
-          Walk in, order at the counter, and leave with a sandwich you’ll think about for days.
-        </p>
-      </div>
-
-      <!-- Large centered hero visual (dynamic background) -->
-      <div id="hero-visual" aria-hidden="true"></div>
-
-    </div>
-  </section>
-
-  <!-- ========== SANDWICHES (MODERNIZED) ========== -->
-  <section id="sandwiches">
-    <div class="container">
-      <h2>Andrea’s Famous Sandwiches</h2>
-      <p class="section-intro">
-        Classic Italian subs, fresh mozzarella heroes, hot dishes from the kitchen, and deli favorites.
-        This is where the neighborhood lines up.
-      </p>
-
-      <div class="menu-columns">
-
-        <!-- LEFT COLUMN: COLLAPSIBLE MENU -->
-        <div>
-          <details open class="sandwich-collapse">
-            <summary class="sandwich-summary">
-              <span>View our sandwich menu</span>
-              <span class="sandwich-summary-sub">Tap or click to expand or collapse</span>
-            </summary>
-
-            <!-- Cold Subs -->
-            <div class="menu-category-title">Cold Subs</div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">Italian Combo</div>
-              <div class="menu-item-desc">
-                Ham, salami, capicola, provolone, lettuce, tomato, onion, oil & vinegar.
-              </div>
-              <div class="menu-item-price">$</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">Prosciutto di Parma & Sharp Provolone</div>
-              <div class="menu-item-desc">
-                Imported prosciutto, sharp provolone, roasted peppers, oil & vinegar.
-              </div>
-              <div class="menu-item-price">$</div>
-            </div>
-
-            <!-- Hot Sandwiches -->
-            <div class="menu-category-title">Hot Sandwiches</div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">Chicken Cutlet & Fresh Mozzarella</div>
-              <div class="menu-item-desc">
-                Homemade chicken cutlet, fresh mozzarella, roasted peppers.
-              </div>
-              <div class="menu-item-price">$</div>
-            </div>
-
-            <!-- Mozzarella Specials -->
-            <div class="menu-category-title">Fresh Mozzarella Specials</div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">Mozzarella, Tomato & Basil</div>
-              <div class="menu-item-desc">
-                House-made mozzarella, ripe tomato, fresh basil, olive oil.
-              </div>
-              <div class="menu-item-price">$</div>
-            </div>
-
-          </details>
-
-          <p class="menu-note" style="margin-top:1rem; font-size:0.95rem; color:#7b6651;">
-            Menu items and availability may change. Ask at the counter for daily specials, hot dishes,
-            and party platters.
-          </p>
-        </div>
-
-        <!-- RIGHT COLUMN: FEATURED TEXT -->
-        <div>
-          <h3>Fresh mozzarella made daily.</h3>
-          <p>
-            The mozzarella is made fresh in-house and finds its way into heroes, platters,
-            and last‑minute “I’ll take a pound to go” orders.
-          </p>
-          <p style="margin-top:1rem;">
-            Call ahead for large orders and catering trays, especially around holidays,
-            Saint Joseph’s, and neighborhood events.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-<!-- ========== FROM THE COUNTER & KITCHEN ========== -->
-<section id="gallery" class="counter-section">
-  <div class="container">
-    <h2>From the Counter & Kitchen</h2>
-    <p class="section-intro">
-      A look into the heart of Andrea’s Salumeria — where fresh mozzarella is pulled daily,
-      sandwiches are crafted with care, and classic Italian specialties come to life.
-      Check back soon for featured highlights from our kitchen.
-    </p>
-  </div>
-</section>
-
-  <!-- ========== VISIT / CONTACT (MODERNIZED) ========== -->
-  <section id="visit">
-    <div class="container">
-      <h2>Visit Andrea’s Salumeria</h2>
-      <p class="section-intro">
-        Stop by for a sandwich, pick up deli meats and cheeses, or explore our shelves of Italian specialties.
-      </p>
-
-      <div class="info-grid">
-
-        <!-- Address -->
-        <div>
-          <div class="info-label">Address</div>
-          <div class="info-value">
-            Andrea's Salumeria<br>
-            247 Central Ave<br>
-            Jersey City, NJ 07307
-          </div>
-
-          <div class="info-label" style="margin-top:1.25rem;">Phone</div>
-          <div class="info-value">(201) 653‑1666</div>
-        </div>
-
-        <!-- Online -->
-        <div>
-          <div class="info-label">Online</div>
-          <div class="info-value">
-            Instagram: @andreas_247central<br>
-            Yelp: Andrea's Salumeria, Jersey City
-          </div>
-
-          <div class="social-icons">
-            <!-- Instagram -->
-            <a class="social-icon" href="https://www.instagram.com/andreas_247central/" target="_blank">
-              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="#7b1b1b" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="#7b1b1b" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="#7b1b1b"/></svg>
-            </a>
-
-            <!-- Facebook -->
-            <a class="social-icon" href="https://www.facebook.com/search/top?q=andrea%20salumeria" target="_blank">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#3b5998" stroke-width="1.6"/><path d="M13 8h1.5V6H13c-2 0-3.5 1.3-3.5 3.6V11H8v2h1.5v5h2v-5h1.8l0.7-2H11.5v-1.3C11.5 8.7 12 8 13 8z" fill="#3b5998"/></svg>
-            </a>
-
-            <!-- Yelp -->
-            <a class="social-icon" href="https://www.yelp.com/biz/andrea-salumeria-jersey-city" target="_blank">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#af0606" stroke-width="1.6"/><path d="M9.2 5.3c-.2-.8.4-1.5 1.2-1.6l.6-.1c.7-.1 1.4.4 1.5 1.1l.6 4c.1.7-.4 1.3-1.1 1.4l-.3 0c-.5.1-1-.2-1.2-.7L9.2 5.3zM7 9.7l-3.3-.8C3 8.8 2.6 9 2.4 9.4l-.2.6c-.2.7.2 1.4.9 1.6l3.7 1c.6.2 1.3-.2 1.5-.8.1-.4 0-.9-.4-1.2L7 9.7zm2.1 3.3l-2.1 3c-.4.6-.2 1.4.4 1.8l.5.3c.6.3 1.4.1 1.8-.5l1.9-3.1c.3-.6.1-1.3-.5-1.7-.5-.3-1.2-.2-1.6.2zM13.6 13.8l1.1 3.5c.2.7.9 1.1 1.6.9l.6-.2c.7-.2 1.1-.9 1-1.6l-1-4c-.2-.7-.9-1.1-1.6-.9-.7.2-1.1.9-1 1.6zM15.2 10.4l2.9-2.5c.5-.4.6-1.2.2-1.7l-.4-.5c-.5-.6-1.3-.6-1.8-.1l-2.5 2.7c-.5.5-.4 1.3.1 1.8.4.4 1.1.4 1.5.1z" fill="#af0606"/></svg>
-            </a>
-
-            <!-- Google Maps -->
-            <a class="social-icon" href="https://www.google.com/maps/place/Andrea+Salumeria" target="_blank">
-              <svg viewBox="0 0 24 24"><path d="M12 2.5c-3.1 0-5.5 2.4-5.5 5.6 0 3.8 3.4 7.9 5 9.7.3.3.8.3 1.1 0 1.6-1.8 5-5.9 5-9.7 0-3.2-2.4-5.6-5.6-5.6z" fill="none" stroke="#4285f4" stroke-width="1.6"/><circle cx="12" cy="8.1" r="2.2" fill="#4285f4"/></svg>
-            </a>
-          </div>
-
-          <button class="google-review-btn" onclick="openGoogleReview()">
-            ★ Leave a Review on Google
-          </button>
-        </div>
-
-        <!-- Hours -->
-        <div>
-          <div class="info-label">Hours</div>
-          <div class="info-value">
-            Monday – Friday: 8:00AM–6:00PM<br>
-            Saturday: 8:00AM–5:00PM<br>
-            Sunday: Closed
-          </div>
-
-          <div class="info-label" style="margin-top:1.25rem;">Services</div>
-          <div class="info-value">
-            Takeout, catering, and Italian grocery shopping.
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Map -->
-      <div class="map-embed">
-        <iframe
-        width="100%"
-        height="320"
-        style="border:0;"
-        loading="lazy"
-        allowfullscreen
-        referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.040028179708!2d-74.051889!3d40.748652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c257f7f1f3c4d1%3A0x61689fe0e35ef8a5!2sAndrea%20Salumeria!5e0!3m2!1sen!2sus!4v1700000000000">
-      </iframe>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========== FOOTER (MODERNIZED) ========== -->
-  <footer>
-    <div class="container">
-
-      <!-- Footer image rotator -->
-      <div id="footer-rotator" class="footer-rotator"></div>
-
-      <div class="footer-copy">
-        © Andrea’s Salumeria • 247 Central Ave, Jersey City, NJ • Since 1975
-      </div>
-
-    </div>
-  </footer>
-
-<script>
-/* ============================================================
-   HERO ROTATOR — loads images from photos/hero/manifest.json
-   Smooth fade + zoom animation
-============================================================ */
-
-let heroImages = [];
-let currentHeroIndex = 0;
-const heroDuration = 7000; // 7 seconds per image
-const heroVisual = document.getElementById("hero-visual");
-
-function shuffle(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+  section {
+    padding: 45px 0;
   }
 }
 
-function showHeroImage(index) {
-  if (!heroVisual || heroImages.length === 0) return;
-
-  heroVisual.classList.remove("hero-visual--active");
-  heroVisual.style.opacity = 0;
-
-  setTimeout(() => {
-    heroVisual.style.backgroundImage = `url("${heroImages[index]}")`;
-
-    requestAnimationFrame(() => {
-      heroVisual.classList.add("hero-visual--active");
-      heroVisual.style.opacity = 1;
-    });
-  }, 250);
-}
-
-function rotateHero() {
-  currentHeroIndex = (currentHeroIndex + 1) % heroImages.length;
-  showHeroImage(currentHeroIndex);
-}
-
-async function loadHeroManifest() {
-  try {
-    const response = await fetch("photos/hero/manifest.json");
-    const data = await response.json();
-
-    heroImages = data.images.map(name => `photos/hero/${name}`);
-    shuffle(heroImages);
-
-    showHeroImage(currentHeroIndex);
-    setInterval(rotateHero, heroDuration);
-  } catch (err) {
-    console.error("Hero manifest error:", err);
-  }
-}
-
-loadHeroManifest();
-
-/* ============================================================
-   GALLERY — loads images from photos/gallery/manifest.json
-============================================================ */
-
-async function loadGallery() {
-  try {
-    const response = await fetch("photos/gallery/manifest.json");
-    const data = await response.json();
-
-    const galleryGrid = document.getElementById("gallery-grid");
-    if (!galleryGrid) return;
-
-    data.images.forEach(name => {
-      const src = `photos/gallery/${name}`;
-
-      const item = document.createElement("figure");
-      item.className = "gallery-item";
-
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = "";
-      img.className = "gallery-photo";
-
-      item.appendChild(img);
-      galleryGrid.appendChild(item);
-    });
-
-  } catch (err) {
-    console.error("Gallery manifest error:", err);
-  }
-}
-
-loadGallery();
-
-/* ============================================================
-   LOAD IMAGES FROM manifest.json FOR COUNTER CAROUSEL
-============================================================ */
-
-let counterImages = [];
-let counterIndex = 0;
-
-// Load manifest.json
-fetch("manifest.json")
-  .then(response => response.json())
-  .then(data => {
-    counterImages = data.gallery; // Pull gallery array
-    updateCounterImage();         // Show first image
-  });
-
-function updateCounterImage() {
-  const img = document.getElementById("counter-image");
-  img.style.opacity = 0;
-
-  setTimeout(() => {
-    img.src = counterImages[counterIndex];
-    img.style.opacity = 1;
-  }, 200);
-}
-
-function nextCounterImage() {
-  counterIndex = (counterIndex + 1) % counterImages.length;
-  updateCounterImage();
-}
-
-function prevCounterImage() {
-  counterIndex = (counterIndex - 1 + counterImages.length) % counterImages.length;
-  updateCounterImage();
-}
-  
-/<!-- ========== FOOTER ========== -->
-<footer class="site-footer">
-  <div class="footer-container">
-    <h3>Andrea’s Salumeria</h3>
-    <p class="footer-subtitle">Since 1975 • Jersey City, New Jersey</p>
-
-    <nav class="footer-nav">
-      <a href="#about">About Us</a>
-      <a href="#visit">Visit</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <p class="footer-copy">© 2025 Andrea’s Salumeria. All rights reserved.</p>
-  </div>
-</footer>
-
-/* ============================================================
-   GOOGLE REVIEW BUTTON
-============================================================ */
-
-function openGoogleReview() {
-  window.open(
-    "https://www.google.com/maps/place/Andrea+Salumeria",
-    "_blank"
-  );
-}
-
-/* ============================================================
-   LOGO SWITCHER — auto‑swap light/dark logos based on theme
-============================================================ */
-
+/* ========== script.js - LOGO SWITCHER (LIGHT/DARK PREFERENCE) ========== */
 function setLogoForTheme() {
   const logo = document.getElementById("site-logo");
   if (!logo) return;
 
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  if (prefersDark) {
-    logo.src = "photos/logo/andreas-header-dark.png";
-  } else {
-    logo.src = "photos/logo/andreas-header-light.png";
-  }
+  logo.src = prefersDark
+    ? "photos/logo/andreas-header-dark.png"
+    : "photos/logo/andreas-header-light.png";
 }
 
 setLogoForTheme();
 
 window.matchMedia("(prefers-color-scheme: dark)")
   .addEventListener("change", setLogoForTheme);
-</script>
-</body>
-</html>
 
+/* ========== GOOGLE REVIEW BUTTON ========== */
+function openGoogleReview() {
+  const googleReviewsUrl =
+    "https://www.google.com/search?sca_esv=a1e1e5d171e0c4e7&sxsrf=AE3TifPNpLQqmJf4xYMKKj8i6-9z2WsZcw:1766528629558&si=AMgyJEuzsz2NflaaWzrzdpjxXXRaJ2hfdMsbe_mSWso6src8sxolecbEQiEI8vPmaUQRdw_KO-uQ3J0158VC9IqjtS9jOyfa00FU-rzStTucujn8FHIdoS9FezDbHabJU-nEfL-648Ju&q=Andrea+Salumeria+Reviews&sa=X&ved=2ahUKEwiq-8z739SRAxUoDHkGHWIEOzQQ0bkNegQIIhAE&biw=1920&bih=919&dpr=1";
+  window.open(googleReviewsUrl, "_blank");
+}
 
+/* ========== HERO SLIDESHOW ========== */
+const heroSlides = document.querySelectorAll(".hero-slide");
+let currentHeroIndex = 0;
+const heroIntervalMs = 6500; // 6.5 seconds per slide
 
+function showHeroSlide(index) {
+  heroSlides.forEach((slide, i) => {
+    slide.classList.toggle("active", i === index);
+  });
+}
+
+function nextHeroSlide() {
+  if (heroSlides.length === 0) return;
+  currentHeroIndex = (currentHeroIndex + 1) % heroSlides.length;
+  showHeroSlide(currentHeroIndex);
+}
+
+// Initialize slideshow
+if (heroSlides.length > 0) {
+  showHeroSlide(currentHeroIndex);
+  setInterval(nextHeroSlide, heroIntervalMs);
+}
