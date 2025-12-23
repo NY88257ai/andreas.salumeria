@@ -211,19 +211,6 @@
       border-bottom: 1px solid #e0d2c2;
     }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-
-    .gallery-item {
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
-      background: #fff;
-    }
-
 /* ========== COUNTER CAROUSEL ========== */
 
 .counter-section {
@@ -311,30 +298,46 @@
       box-shadow: 0 4px 14px rgba(0,0,0,0.18);
     }
 
-    /* ========== FOOTER (MODERNIZED) ========== */
-    footer {
-      background: #29160f;
-      color: #f7f1e7;
-      padding: 3rem 0;
-      text-align: center;
-    }
+/* ========== FOOTER ========== */
 
-    .footer-rotator {
-      width: 100%;
-      max-width: 420px;
-      margin: 0 auto 1.5rem;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.35);
-      transition: opacity 0.6s ease-in-out;
-    }
+.site-footer {
+  background: #4A281E;
+  color: #F5EDE3;
+  text-align: center;
+  padding: 50px 20px;
+  margin-top: 60px;
+}
 
-    .footer-copy {
-      font-size: 0.95rem;
-      color: #e3d3c1;
-    }
-  </style>
-</head>
+.site-footer h3 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.footer-subtitle {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 20px;
+}
+
+.footer-nav {
+  margin-bottom: 25px;
+}
+
+.footer-nav a {
+  color: #F5EDE3;
+  margin: 0 12px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}
+
+.footer-copy {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
 
 <body>
 
@@ -462,22 +465,15 @@
     </div>
   </section>
 
-  <!-- ========== FROM THE COUNTER & KITCHEN ========== -->
+<!-- ========== FROM THE COUNTER & KITCHEN ========== -->
 <section id="gallery" class="counter-section">
   <div class="container">
     <h2>From the Counter & Kitchen</h2>
     <p class="section-intro">
-      A glimpse of the sandwiches, specialties, and moments that make Andrea’s Salumeria a neighborhood favorite.
-      New photos appear here as they’re added to our gallery.
+      A look into the heart of Andrea’s Salumeria — where fresh mozzarella is pulled daily,
+      sandwiches are crafted with care, and classic Italian specialties come to life.
+      Check back soon for featured highlights from our kitchen.
     </p>
-
-    <div class="carousel-container">
-      <button class="carousel-arrow left" onclick="prevCounterImage()">&#10094;</button>
-
-      <img id="counter-image" class="carousel-image" src="" alt="From the Counter">
-
-      <button class="carousel-arrow right" onclick="nextCounterImage()">&#10095;</button>
-    </div>
   </div>
 </section>
 
@@ -711,44 +707,21 @@ function prevCounterImage() {
   updateCounterImage();
 }
   
-/* ============================================================
-   FOOTER ROTATOR — reuses gallery images
-============================================================ */
+/<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <h3>Andrea’s Salumeria</h3>
+    <p class="footer-subtitle">Since 1975 • Jersey City, New Jersey</p>
 
-let footerImages = [];
-let currentFooterIndex = 0;
-const footerDuration = 5000;
+    <nav class="footer-nav">
+      <a href="#about">About Us</a>
+      <a href="#visit">Visit</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-async function loadFooterImages() {
-  try {
-    const response = await fetch("photos/gallery/manifest.json");
-    const data = await response.json();
-
-    footerImages = data.images.map(name => `photos/gallery/${name}`);
-
-    rotateFooterImage();
-    setInterval(rotateFooterImage, footerDuration);
-
-  } catch (err) {
-    console.error("Footer rotator error:", err);
-  }
-}
-
-function rotateFooterImage() {
-  const rotator = document.getElementById("footer-rotator");
-  if (!rotator || footerImages.length === 0) return;
-
-  rotator.style.opacity = 0;
-
-  setTimeout(() => {
-    rotator.innerHTML = `<img src="${footerImages[currentFooterIndex]}" alt="">`;
-    rotator.style.opacity = 1;
-
-    currentFooterIndex = (currentFooterIndex + 1) % footerImages.length;
-  }, 300);
-}
-
-loadFooterImages();
+    <p class="footer-copy">© 2025 Andrea’s Salumeria. All rights reserved.</p>
+  </div>
+</footer>
 
 /* ============================================================
    GOOGLE REVIEW BUTTON
@@ -785,5 +758,6 @@ window.matchMedia("(prefers-color-scheme: dark)")
 </script>
 </body>
 </html>
+
 
 
