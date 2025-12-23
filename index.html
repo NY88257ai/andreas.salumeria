@@ -11,7 +11,7 @@
   -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Andrea’s Salumeria | Fine Italian Deli & Grocer</title>
+  <title>Andrea’s Salumeria | Fine Italian Salumeria</title>
 
   <style>
     /* ========== BASE RESET ========== */
@@ -304,20 +304,21 @@
 <body>
 
   <!-- ========== HEADER ========== -->
-  <header>
-    <div class="brand-name">ANDREA’S SALUMERIA</div>
-    <div class="brand-tagline">Fine Italian Deli & Grocer</div>
-    <div class="brand-year">Since 1975 • Jersey City, New Jersey</div>
-  </header>
+<header>
+  <img id="site-logo" 
+       src="photos/logo/andreas-header-light.png" 
+       alt="Andrea's Salumeria Logo"
+       style="max-width: 320px; display:block; margin:0 auto;">
+</header>
 
-  <nav>
-    <ul class="nav-list">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#sandwiches">Sandwiches</a></li>
-      <li><a href="#gallery">From the Counter</a></li>
-      <li><a href="#visit">Visit</a></li>
-    </ul>
-  </nav>
+<nav>
+  <ul class="nav-list">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#sandwiches">Sandwiches</a></li>
+    <li><a href="#gallery">From the Counter</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+</nav>
 
   <!-- ========== HERO (MODERNIZED) ========== -->
   <section id="hero">
@@ -413,7 +414,7 @@
         <div>
           <h3>Fresh mozzarella made daily.</h3>
           <p>
-            The mozzarella is pulled fresh in-house and finds its way into heroes, platters,
+            The mozzarella is made fresh in-house and finds its way into heroes, platters,
             and last‑minute “I’ll take a pound to go” orders.
           </p>
           <p style="margin-top:1rem;">
@@ -518,9 +519,14 @@
       <!-- Map -->
       <div class="map-embed">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.040028179708!2d-74.051889!3d40.748652"
-          width="100%" height="320" style="border:0;" loading="lazy">
-        </iframe>
+        width="100%"
+        height="320"
+        style="border:0;"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.040028179708!2d-74.051889!3d40.748652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c257f7f1f3c4d1%3A0x61689fe0e35ef8a5!2sAndrea%20Salumeria!5e0!3m2!1sen!2sus!4v1700000000000">
+      </iframe>
       </div>
 
     </div>
@@ -670,7 +676,6 @@ function rotateFooterImage() {
 
 loadFooterImages();
 
-
 /* ============================================================
    GOOGLE REVIEW BUTTON
 ============================================================ */
@@ -681,6 +686,29 @@ function openGoogleReview() {
     "_blank"
   );
 }
+
+/* ============================================================
+   LOGO SWITCHER — auto‑swap light/dark logos based on theme
+============================================================ */
+
+function setLogoForTheme() {
+  const logo = document.getElementById("site-logo");
+  if (!logo) return;
+
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  if (prefersDark) {
+    logo.src = "photos/logo/andreas-header-dark.png";
+  } else {
+    logo.src = "photos/logo/andreas-header-light.png";
+  }
+}
+
+setLogoForTheme();
+
+window.matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", setLogoForTheme);
 </script>
 </body>
 </html>
+
