@@ -1,1472 +1,640 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Andrea's Salumeria | Fine Italian Deli & Grocer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --color-primary: #7b1b1b;
-      --color-primary-dark: #5b1414;
-      --color-accent: #4b5a2a;
-      --color-cream: #f7f1e3;
-      --color-cream-dark: #e3d6c5;
-      --color-text: #2b1b0f;
-      --color-muted: #8a7c6b;
-
-      --max-width: 1100px;
-      --radius-card: 6px;
-      --shadow-soft: 0 6px 16px rgba(0, 0, 0, 0.08);
-    }
-
+    /* --------- Base styles --------- */
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
-      font-family: 'Lato', Arial, sans-serif;
-      background: var(--color-cream);
-      color: var(--color-text);
-      line-height: 1.6;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #faf7f2;
+      color: #261a12;
+      line-height: 1.5;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.25rem;
+    img {
+      display: block;
     }
 
-    section {
-      padding: 3.5rem 0;
-      border-bottom: 1px solid rgba(0,0,0,0.04);
-    }
-
-    h1, h2, h3, h4 {
-      font-family: 'Playfair Display', 'Times New Roman', serif;
-      color: var(--color-primary-dark);
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .section-intro {
-      max-width: 650px;
-      color: var(--color-muted);
-      margin-bottom: 2rem;
-    }
-
-    /* Header / Nav */
-    header {
-      background: linear-gradient(to bottom, #ffffff, #f5ebe0);
-      border-bottom: 2px solid var(--color-primary);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-bar {
+    /* --------- Layout --------- */
+    .page {
+      min-height: 100vh;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 0;
+      flex-direction: column;
     }
 
-    .logo-block {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .logo-flag {
-      width: 32px;
-      height: 22px;
-      border-radius: 3px;
-      overflow: hidden;
-      display: flex;
-      box-shadow: 0 0 0 1px rgba(0,0,0,0.08);
-    }
-
-    .flag-band {
+    main {
       flex: 1;
     }
 
-    .flag-green { background: #008c45; }
-    .flag-white { background: #ffffff; }
-    .flag-red   { background: #cd212a; }
-
-    .logo-text-main {
-      font-family: 'Playfair Display', 'Times New Roman', serif;
-      font-size: 1.25rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--color-primary-dark);
+    .section {
+      padding: 3rem 1.25rem;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
-    .logo-text-sub {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--color-muted);
+    .section--tight {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
     }
 
-    .nav-links {
+    /* --------- Header / Nav --------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #120d09;
+      color: #fdf7ee;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
-      gap: 1.5rem;
-      font-size: 0.95rem;
-      text-transform: uppercase;
+      justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+      gap: 1rem;
+    }
+
+    .nav__brand {
+      font-weight: 700;
       letter-spacing: 0.12em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
     }
 
-    .nav-links a {
-      position: relative;
-      padding-bottom: 0.15rem;
+    .nav__links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: var(--color-primary);
-      transition: width 0.2s ease-out;
+    .nav__link {
+      opacity: 0.85;
+      cursor: pointer;
     }
 
-    .nav-links a:hover::after {
-      width: 100%;
+    .nav__link:hover {
+      opacity: 1;
     }
 
-    .nav-cta {
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid var(--color-primary);
-      background: var(--color-primary);
+    .nav__cta {
+      background: #d11f29;
       color: #fff;
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
       font-size: 0.85rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      cursor: pointer;
-      transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
-      box-shadow: 0 3px 8px rgba(123,27,27,0.35);
+      letter-spacing: 0.08em;
+      white-space: nowrap;
     }
 
-    .nav-cta:hover {
-      background: var(--color-primary-dark);
-      transform: translateY(-1px);
-    }
-
-    .nav-toggle {
-      display: none;
-      border: none;
-      background: none;
-      cursor: pointer;
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--color-primary-dark);
-      margin: 4px 0;
+    .nav__cta:hover {
+      background: #b01a22;
     }
 
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        left: 0;
-        background: #fffaf1;
+      .nav {
         flex-direction: column;
         align-items: flex-start;
-        padding: 0.75rem 1.25rem 1rem;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
       }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-cta {
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-      }
-
-      .nav-toggle {
-        display: block;
+      .nav__links {
+        justify-content: flex-start;
       }
     }
 
-    /* Hero */
+    /* --------- Hero --------- */
     .hero {
-      background: linear-gradient(to bottom, #f8f5ef, #f0e1cf);
-      padding: 0 0 3rem;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .hero-inner {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
       gap: 2.5rem;
-      align-items: stretch;
-      padding-top: 2.75rem;
+      align-items: center;
     }
 
-    .hero-eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.24em;
+    .hero__badge {
       font-size: 0.8rem;
-      color: var(--color-accent);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #b32a1e;
       margin-bottom: 0.75rem;
     }
 
-    .hero-title {
-      font-size: clamp(2.1rem, 3vw, 2.7rem);
-      line-height: 1.2;
-      margin-bottom: 1rem;
+    .hero__title {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 2.4rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0 0 0.75rem 0;
     }
 
-    .hero-title span {
-      color: var(--color-primary);
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      color: var(--color-muted);
-      max-width: 30rem;
+    .hero__subtitle {
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #7c5c3a;
       margin-bottom: 1.5rem;
     }
 
-    .hero-meta {
+    .hero__body {
+      font-size: 0.98rem;
+      max-width: 34rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero__chips {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
-      font-size: 0.9rem;
-      color: var(--color-muted);
-      margin-bottom: 1.5rem;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
     }
 
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.25rem 0.75rem;
+    .chip {
       border-radius: 999px;
-      border: 1px solid rgba(0,0,0,0.08);
-      background: rgba(255,255,255,0.8);
+      border: 1px solid #d8c7b4;
+      padding: 0.3rem 0.8rem;
       font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
+      background: #fffdf9;
+      white-space: nowrap;
     }
 
-    .pill--primary {
-      border-color: var(--color-primary);
-      color: var(--color-primary-dark);
-      background: #fff;
-    }
-
-    .hero-actions {
+    .hero__actions {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
-      margin-bottom: 0.75rem;
+      align-items: center;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      padding: 0.6rem 1.2rem;
       border-radius: 999px;
-      padding: 0.6rem 1.4rem;
-      border: 1px solid var(--color-primary);
+      border: none;
       font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
       cursor: pointer;
-      background: transparent;
-      transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
-    }
-
-    .btn-primary {
-      background: var(--color-primary);
-      color: #fff;
-      box-shadow: 0 4px 10px rgba(123,27,27,0.35);
-    }
-
-    .btn-primary:hover {
-      background: var(--color-primary-dark);
-      transform: translateY(-1px);
-    }
-
-    .btn-ghost {
-      border-color: rgba(0,0,0,0.18);
-      color: var(--color-text);
-      background: rgba(255,255,255,0.75);
-    }
-
-    .btn-ghost:hover {
-      background: #fff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-
-    .hero-note {
-      font-size: 0.8rem;
-      color: var(--color-muted);
-    }
-
-    /* Hero visual rotator */
-    .hero-visual-wrapper {
-      position: relative;
-      border-radius: var(--radius-card);
-      overflow: hidden;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(0,0,0,0.05);
-      background: #000;
-      min-height: 260px;
-    }
-
-    .hero-visual {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      padding-bottom: 70%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      transform-origin: center center;
-      transition: opacity 1.2s ease-out, transform 6s ease-out;
-      opacity: 0;
-    }
-
-    .hero-visual.hero-visual--active {
-      opacity: 1;
-      transform: scale(1.04);
-    }
-
-    .hero-visual-overlay {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at bottom, rgba(0,0,0,0.45), transparent 55%);
-      pointer-events: none;
-    }
-
-    .hero-visual-label {
-      position: absolute;
-      left: 1rem;
-      bottom: 1rem;
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.65);
-      color: #fff;
-      font-size: 0.7rem;
+      white-space: nowrap;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-    }
-
-    @media (max-width: 900px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-      }
-      .hero-visual-wrapper {
-        order: -1;
-      }
-    }
-
-    /* Highlights (shortened – we’ll reuse structure later if needed) */
-    .highlight-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: var(--radius-card);
-      padding: 1.5rem 1.35rem;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(0,0,0,0.04);
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 0.75rem;
-    }
-
-    .card-title {
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-    }
-
-    .card-tag {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--color-muted);
-    }
-
-    .card-body {
-      font-size: 0.9rem;
-      color: var(--color-text);
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.2rem 0.55rem;
-      border-radius: 999px;
-      border: 1px solid var(--color-accent);
-      color: var(--color-accent);
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      margin-top: 0.5rem;
-    }
-
-    /* Menu sections */
-    .menu-section {
-      margin-bottom: 2.5rem;
-    }
-
-    .menu-section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1rem;
-      margin-bottom: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .menu-section-title {
-      font-size: 1.3rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-    }
-
-    .menu-section-subtitle {
-      font-size: 0.9rem;
-      color: var(--color-muted);
-      max-width: 380px;
-    }
-
-    .menu-columns {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .menu-category-title {
-      font-family: 'Playfair Display', 'Times New Roman', serif;
-      font-size: 1.05rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--color-primary-dark);
-      margin-bottom: 0.5rem;
-    }
-
-    .menu-items {
-      list-style: none;
-      font-size: 0.9rem;
-    }
-
-    .menu-items li {
-      padding: 0.35rem 0;
-      border-bottom: 1px dashed rgba(0,0,0,0.08);
-    }
-
-    .menu-item-name {
+      letter-spacing: 0.12em;
       font-weight: 600;
     }
 
-    .menu-item-desc {
-      font-size: 0.85rem;
-      color: var(--color-muted);
+    .btn--primary {
+      background: #d11f29;
+      color: #fff;
     }
 
-    .menu-note {
-      font-size: 0.85rem;
-      color: var(--color-muted);
+    .btn--primary:hover {
+      background: #b01a22;
+    }
+
+    .btn--ghost {
+      background: transparent;
+      border: 1px solid #c8b59e;
+      color: #5a3f27;
+    }
+
+    .btn--ghost:hover {
+      background: #f1e2cf;
+    }
+
+    .hero__note {
+      font-size: 0.8rem;
+      color: #7f6b55;
       margin-top: 0.75rem;
     }
 
-    .two-col {
+    /* Hero image area using dynamic loader */
+    .hero__media {
+      border-radius: 1.25rem;
+      overflow: hidden;
+      background: #120d09;
+      padding: 0.5rem;
+    }
+
+    .hero__image-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
     }
 
-    /* About */
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 2.5rem;
-      align-items: start;
-    }
-
-    .about-accent {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--color-accent);
-      margin-bottom: 0.75rem;
-    }
-
-    .about-text {
-      font-size: 0.95rem;
-      color: var(--color-text);
-    }
-
-    .about-text p + p {
-      margin-top: 0.75rem;
-    }
-
-    .about-card {
-      background: #fff;
-      border-radius: var(--radius-card);
-      padding: 1.5rem 1.35rem;
-      box-shadow: var(--shadow-soft);
-      border: 1px dashed rgba(0,0,0,0.09);
-    }
-
-    .about-meta {
-      font-size: 0.9rem;
-      color: var(--color-muted);
-      margin-top: 0.75rem;
+    .hero__image-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.9rem;
+      object-fit: cover;
     }
 
     @media (max-width: 900px) {
-      .about-grid {
+      .hero {
         grid-template-columns: 1fr;
       }
     }
 
-    /* Visit / Contact */
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-    }
-
-    .info-label {
-      font-size: 0.8rem;
+    /* --------- Collapsible sandwiches section --------- */
+    .block-heading {
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: var(--color-muted);
-      margin-bottom: 0.4rem;
+      font-size: 0.8rem;
+      color: #7c5c3a;
+      margin-bottom: 0.35rem;
     }
 
-    .info-value {
-      font-size: 0.95rem;
-      color: var(--color-text);
+    .section__title {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 1.7rem;
+      margin: 0 0 1rem 0;
     }
 
-    .social-icons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1rem;
-      align-items: center;
+    .sandwiches {
+      background: #fff9f1;
+      border-radius: 1rem;
+      padding: 1.5rem 1.25rem;
+      border: 1px solid #e1d3c3;
     }
 
-    .social-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #fff;
-      border: 1px solid rgba(0,0,0,0.1);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
+    details {
+      border-radius: 0.75rem;
+      border: 1px solid #dcc7af;
+      background: #fffdf7;
+      padding: 0.9rem 0.95rem;
     }
 
-    .social-icon svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    .social-icon:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
-      background: #fffdf8;
-    }
-
-    .google-review-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      border: 1px solid #c99500;
-      background: linear-gradient(to right, #ffcc4d, #f6a623);
-      color: #4b3205;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
+    summary {
+      list-style: none;
       cursor: pointer;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      font-weight: 600;
+      font-size: 0.98rem;
     }
 
-    .google-review-btn span.star {
-      font-size: 1.1rem;
+    summary::-webkit-details-marker {
+      display: none;
     }
 
-    .google-review-btn:hover {
-      filter: brightness(1.05);
-      transform: translateY(-1px);
+    .summary-label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
     }
 
-    .map-embed {
-      margin-top: 1.5rem;
-      border-radius: var(--radius-card);
-      overflow: hidden;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(0,0,0,0.05);
+    .summary-sub {
+      font-size: 0.8rem;
+      color: #7b6651;
+      font-weight: 400;
     }
 
-    /* Gallery */
-    #gallery-grid {
+    .summary-icon {
+      font-size: 1.2rem;
+      color: #b32a1e;
+    }
+
+    .sandwich-list {
+      margin-top: 0.85rem;
+      border-top: 1px solid #f0e3d4;
+      padding-top: 0.75rem;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .sandwich-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    .sandwich-item__name {
+      font-weight: 600;
+    }
+
+    .sandwich-item__desc {
+      font-size: 0.82rem;
+      color: #6c5642;
+      margin-top: 0.15rem;
+    }
+
+    .sandwich-item__price {
+      font-size: 0.9rem;
+      white-space: nowrap;
+      color: #4d3520;
+    }
+
+    @media (max-width: 600px) {
+      .sandwich-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* --------- Gallery section --------- */
+    .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
     }
 
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow-soft);
-      background: #000;
-    }
-
-    .gallery-photo {
+    .gallery-grid img {
       width: 100%;
-      height: 100%;
+      border-radius: 0.9rem;
       object-fit: cover;
-      transition: transform 0.6s ease-out, opacity 0.3s ease-out;
+      background: #efe3d4;
     }
 
-    .gallery-item:hover .gallery-photo {
-      transform: scale(1.05);
-      opacity: 0.95;
+    /* --------- Visit / footer --------- */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 2rem;
     }
 
-    /* Footer */
+    @media (max-width: 900px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      border-radius: 1rem;
+      border: 1px solid #e2d3c1;
+      background: #fffdf8;
+      padding: 1.5rem;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+      font-family: "Georgia", "Times New Roman", serif;
+    }
+
+    .card p {
+      margin: 0.15rem 0;
+      font-size: 0.92rem;
+    }
+
     footer {
-      background: #2a1a11;
-      color: #f3e7d8;
-      padding: 1.25rem 0;
+      background: #120d09;
+      color: #f8efe3;
+      padding: 1.25rem 1.25rem 1.75rem;
       font-size: 0.8rem;
     }
 
-    .footer-inner {
+    footer .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
       display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .footer-meta {
-      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
       flex-wrap: wrap;
-      gap: 1.25rem;
+      opacity: 0.9;
     }
-
-    .footer-meta span {
-      opacity: 0.8;
-    }
-
-    .mt-small { margin-top: 0.5rem; }
-    .mt-med { margin-top: 1rem; }
   </style>
 </head>
+
 <body>
+<div class="page">
 
-<header>
-  <div class="container nav-bar">
-    <div class="logo-block">
-      <div class="logo-flag" aria-hidden="true">
-        <div class="flag-band flag-green"></div>
-        <div class="flag-band flag-white"></div>
-        <div class="flag-band flag-red"></div>
+  <!-- Header / Nav -->
+  <header>
+    <nav class="nav">
+      <div class="nav__brand">
+        ANDREA'S SALUMERIA
       </div>
-      <div>
-        <div class="logo-text-main">Andrea's Salumeria</div>
-        <div class="logo-text-sub">Fine Italian Deli &amp; Grocer • Since 1975</div>
+      <div class="nav__links">
+        <a href="#top" class="nav__link">Home</a>
+        <a href="#sandwiches" class="nav__link">Sandwiches</a>
+        <a href="#gallery" class="nav__link">Catering</a>
+        <a href="#visit" class="nav__link">Visit</a>
+        <a href="#story" class="nav__link">Our Story</a>
+        <a href="#order" class="nav__cta">Order a Sandwich</a>
       </div>
-    </div>
-
-    <button class="nav-toggle" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#sandwiches">Sandwiches</a>
-      <a href="#deli-counter">Deli Counter</a>
-      <a href="#salads-soups">Salads &amp; Soups</a>
-      <a href="#grocery">Grocery</a>
-      <a href="#about">Our Story</a>
-      <a href="#visit">Visit</a>
-      <button class="nav-cta" onclick="document.getElementById('sandwiches').scrollIntoView({behavior:'smooth'})">
-        Order a Sandwich
-      </button>
     </nav>
-  </div>
-</header>
+  </header>
 
-<main>
+  <main id="top">
 
-  <!-- HERO (with cinematic photo rotator) -->
-  <section id="home" class="hero">
-    <div class="container hero-inner">
-      <div>
-        <div class="hero-eyebrow">Since 1975 • Jersey City</div>
-        <h1 class="hero-title">
-          Old‑world Italian deli <span>made fresh</span> every day.
-        </h1>
-        <p class="hero-subtitle">
-          Compact Italian market &amp; deli offering meats, cheeses, sandwiches &amp; more since 1975.
-          Welcome to Andrea's Salumeria — a family‑owned Italian deli and grocer known for homemade mozzarella,
-          famous sandwiches, and nearly fifty years of neighborhood hospitality.
-        </p>
-        <div class="hero-meta">
-          <div class="pill pill--primary">Fine Italian Deli &amp; Grocer</div>
-          <div class="pill">Homemade Mozzarella Daily</div>
+    <!-- Hero section -->
+    <section class="section">
+      <div class="hero">
+        <div class="hero__content">
+          <div class="hero__badge">Fine Italian deli & grocer • Since 1975</div>
+          <h1 class="hero__title">Andrea's Salumeria</h1>
+          <div class="hero__subtitle">Old‑world Italian deli made fresh every day.</div>
+
+          <p class="hero__body">
+            Compact Italian market & deli offering meats, cheeses, sandwiches & more since 1975.
+            Welcome to Andrea's Salumeria — a family-owned Italian deli and grocer known for homemade
+            mozzarella, famous sandwiches, and nearly fifty years of neighborhood hospitality.
+          </p>
+
+          <div class="hero__chips">
+            <div class="chip">Fine Italian deli & grocer</div>
+            <div class="chip">Homemade mozzarella daily</div>
+            <div class="chip">Classic Italian sandwiches</div>
+          </div>
+
+          <div class="hero__actions">
+            <a href="#sandwiches" class="btn btn--primary">View Sandwich Menu</a>
+            <a href="#story" class="btn btn--ghost">Our Story Since 1975</a>
+          </div>
+
+          <div class="hero__note">
+            From our counter, every day — meats, cheeses, antipasti, salads, and sandwiches made to order.
+          </div>
         </div>
-        <div class="hero-actions">
-          <button class="btn btn-primary" onclick="document.getElementById('sandwiches').scrollIntoView({behavior:'smooth'})">
-            View Sandwich Menu
-          </button>
-          <button class="btn btn-ghost" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
-            Our Story Since 1975
-          </button>
-        </div>
-        <div class="hero-note">
-          Classic Italian sandwiches on fresh bread — customize with lettuce, tomato, onion, and our signature oil &amp; vinegar.
+
+        <div class="hero__media">
+          <!-- Dynamic hero images will be injected here -->
+          <div id="hero-container" class="hero__image-grid"></div>
         </div>
       </div>
+    </section>
 
-      <!-- Hero visual rotator (images from photos/hero/...) -->
-      <div class="hero-visual-wrapper">
-        <!-- This div's background-image is controlled by JavaScript -->
-        <div class="hero-visual" id="hero-visual"></div>
-        <div class="hero-visual-overlay"></div>
-        <div class="hero-visual-label">From our counter, every day.</div>
-      </div>
-    </div>
-  </section>
-
-<section id="todays-specials">
-  <div class="container">
-    <h2>Today’s Specials</h2>
-    <p class="section-intro">
-      Fresh from the kitchen — updated daily.
-    </p>
-
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">Special of the Day</h3>
-        <span class="card-tag">Fresh • Limited</span>
-      </div>
-      <div class="card-body">
-        <!-- OWNER UPDATES THIS LINE DAILY -->
-        <strong>Homemade Chicken Cutlet Sandwich</strong><br>
-        Served with roasted peppers, fresh mozzarella, and balsamic drizzle.
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="soup-of-the-day">
-  <div class="container">
-    <h2>Soup of the Day</h2>
-    <p class="section-intro">
-      Homemade soups prepared fresh — perfect for chilly days.
-    </p>
-
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">Today’s Soup</h3>
-        <span class="card-tag">Hot • Fresh</span>
-      </div>
-      <div class="card-body">
-        <!-- OWNER UPDATES THIS LINE DAILY -->
-        <strong>Pasta Fagioli</strong><br>
-        A hearty Italian classic made with love.
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- SANDWICHES -->
-  <section id="sandwiches">
-    <div class="container">
-      <h2>Andrea’s famous sandwiches</h2>
-      <p class="section-intro">
-        All sandwiches are freshly made on your choice of Italian bread or rolls. Customize with fresh lettuce, ripe tomato,
-        crisp onion, and our signature oil &amp; vinegar.
+    <!-- Andrea's Famous Sandwiches (collapsible) -->
+    <section class="section section--tight" id="sandwiches">
+      <div class="block-heading">Andrea’s Famous Sandwiches</div>
+      <h2 class="section__title">Classic Italian Sandwiches on Fresh Bread</h2>
+      <p>
+        Customize with lettuce, tomato, onion, and our signature oil & vinegar. Perfect for lunch,
+        game day, or a platter for the whole table.
       </p>
 
-      <div class="menu-section">
-        <div class="menu-section-header">
-          <h3 class="menu-section-title">Classic Cuts</h3>
-          <p class="menu-section-subtitle">
-            Timeless deli favorites, simply delicious and made to order.
-          </p>
-        </div>
-        <div class="menu-columns">
-          <div>
-            <ul class="menu-items">
-              <li><span class="menu-item-name">Ham &amp; Cheese</span></li>
-              <li><span class="menu-item-name">Turkey &amp; Cheese</span></li>
-              <li><span class="menu-item-name">Roast Beef &amp; Cheese</span></li>
-              <li><span class="menu-item-name">Bologna &amp; Cheese</span></li>
-              <li><span class="menu-item-name">Liverwurst</span></li>
-              <li><span class="menu-item-name">Egg Salad</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <div class="sandwiches" id="order">
+        <details open>
+          <summary>
+            <div class="summary-label">
+              <span>Andrea's Famous Sandwiches</span>
+              <span class="summary-sub">Tap to expand or collapse the full sandwich list.</span>
+            </div>
+            <span class="summary-icon">▾</span>
+          </summary>
 
-      <div class="menu-section">
-        <div class="menu-section-header">
-          <h3 class="menu-section-title">Italian Heroes</h3>
-          <p class="menu-section-subtitle">
-            Packed with authentic Italian flavors for a true hero experience.
-          </p>
-        </div>
-        <div class="menu-columns">
-          <div>
-            <ul class="menu-items">
-              <li><span class="menu-item-name">Genoa Salami &amp; Cheese</span></li>
-              <li><span class="menu-item-name">Cappicola, Salami &amp; Cheese</span></li>
-              <li><span class="menu-item-name">Prosciuttini &amp; Cheese</span></li>
-              <li>
-                <span class="menu-item-name">Sopresata, Fresh Mozzarella &amp; Roasted Peppers</span>
-              </li>
-              <li>
-                <span class="menu-item-name">Pancetta, Mozzarella &amp; Roasted Peppers</span>
-              </li>
-              <li>
-                <span class="menu-item-name">Parmigiano, Provolone &amp; Prosciutto</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+          <div class="sandwich-list">
+            <div class="sandwich-item">
+              <div>
+                <div class="sandwich-item__name">Italian Combo</div>
+                <div class="sandwich-item__desc">
+                  Ham, salami, capicola, provolone, lettuce, tomato, onion, oil & vinegar.
+                </div>
+              </div>
+              <div class="sandwich-item__price">$X.XX</div>
+            </div>
 
-      <div class="menu-section">
-        <div class="menu-section-header">
-          <h3 class="menu-section-title">Combination Favorites</h3>
-          <p class="menu-section-subtitle">
-            Expertly crafted pairings for a perfect blend of tastes.
-          </p>
-        </div>
-        <div class="menu-columns">
-          <div>
-            <ul class="menu-items">
-              <li><span class="menu-item-name">Turkey, Roast Beef &amp; Cheese</span></li>
-              <li><span class="menu-item-name">Roast Beef, Salami &amp; Cheese</span></li>
-              <li><span class="menu-item-name">Turkey, Salami &amp; Cheese</span></li>
-              <li><span class="menu-item-name">Italian Combo</span></li>
-              <li>
-                <span class="menu-item-name">Dry Sausage &amp; Sopresata Sticks</span>
-                <div class="menu-item-desc">Hot or sweet</div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+            <div class="sandwich-item">
+              <div>
+                <div class="sandwich-item__name">Prosciutto & Fresh Mozzarella</div>
+                <div class="sandwich-item__desc">
+                  Thin-sliced prosciutto, homemade mozzarella, roasted peppers, balsamic drizzle.
+                </div>
+              </div>
+              <div class="sandwich-item__price">$X.XX</div>
+            </div>
 
-      <div class="menu-section">
-        <div class="menu-section-header">
-          <h3 class="menu-section-title">Daily Sandwich Specials</h3>
-          <p class="menu-section-subtitle">
-            Unique and flavorful creations from our kitchen, made fresh every day.
-          </p>
-        </div>
-        <div class="menu-columns">
-          <div>
-            <ul class="menu-items">
-              <li>
-                <span class="menu-item-name">The Combo</span>
-                <div class="menu-item-desc">
-                  Ham, Salami, Sopresata, Cappicola, Mozzarella, Sharp Provolone, Sweet Peppers
+            <div class="sandwich-item">
+              <div>
+                <div class="sandwich-item__name">Turkey & Swiss</div>
+                <div class="sandwich-item__desc">
+                  Oven-roasted turkey, Swiss, lettuce, tomato, mayo or oil & vinegar.
                 </div>
-              </li>
-              <li>
-                <span class="menu-item-name">The Soprano</span>
-                <div class="menu-item-desc">
-                  Sopresata, Prosciutto, Mozzarella, Sundry Tomatoes, Extra Virgin Olive Oil
-                </div>
-              </li>
-              <li>
-                <span class="menu-item-name">What’s Up</span>
-                <div class="menu-item-desc">
-                  Ham Cappicola, Hot Sopresata, Hot Cappicola, Mozzarella, Sharp Provolone, Hot Peppers
-                </div>
-              </li>
-              <li>
-                <span class="menu-item-name">Italian Tuna</span>
-                <div class="menu-item-desc">
-                  Tuna with lettuce, tomatoes, olive oil &amp; wine vinegar
-                </div>
-              </li>
-              <li>
-                <span class="menu-item-name">Pete’s Special Tuna</span>
-                <div class="menu-item-desc">
-                  Tuna mixed with mayo, lettuce, peppers, salt, black pepper, oregano, olive oil, vinegar,
-                  topped with fresh tomatoes
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <p class="menu-note">
-          All sandwiches can be customized with lettuce, tomato, onion, and our signature oil &amp; vinegar.
-        </p>
-      </div>
-    </div>
-  </section>
+              </div>
+              <div class="sandwich-item__price">$X.XX</div>
+            </div>
 
-  <!-- DELI COUNTER -->
-  <section id="deli-counter">
-    <div class="container">
-      <h2>Deli counter</h2>
-      <p class="section-intro">
-        Our fine selection of fresh deli meats and artisanal cheeses, sliced to order and ready for sandwiches,
-        platters, or to take home.
+            <div class="sandwich-item">
+              <div>
+                <div class="sandwich-item__name">Chicken Cutlet Parmigiana</div>
+                <div class="sandwich-item__desc">
+                  Breaded chicken cutlet, house red sauce, melted mozzarella on Italian bread.
+                </div>
+              </div>
+              <div class="sandwich-item__price">$X.XX</div>
+            </div>
+
+            <div class="sandwich-item">
+              <div>
+                <div class="sandwich-item__name">Vegetarian Special</div>
+                <div class="sandwich-item__desc">
+                  Roasted peppers, fresh mozzarella, marinated eggplant, arugula, oil & vinegar.
+                </div>
+              </div>
+              <div class="sandwich-item__price">$X.XX</div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Gallery / Catering trays -->
+    <section class="section" id="gallery">
+      <div class="block-heading">From Our Counter, Every Day</div>
+      <h2 class="section__title">Party Trays, Salads & Italian Favorites</h2>
+      <p>
+        From antipasto and cold cuts to fresh salads, pastas, and dessert platters — build a spread
+        that feels like Sunday dinner in an Italian home.
       </p>
 
+      <!-- Dynamic gallery images will be injected here -->
+      <div id="gallery-container" class="gallery-grid"></div>
+    </section>
+
+    <!-- Visit / Hours / Story -->
+    <section class="section" id="visit">
       <div class="two-col">
-        <div>
-          <div class="menu-section-header">
-            <h3 class="menu-section-title">Fine Deli Meats</h3>
-          </div>
-          <ul class="menu-items">
-            <li>Bologna (large or small)</li>
-            <li>Boar's Head Ham</li>
-            <li>Buffalo Chicken Breast</li>
-            <li>Cacciatori</li>
-            <li>Cappicola (Hot or Sweet)</li>
-            <li>Genoa Salami</li>
-            <li>Ham Cappicola</li>
-            <li>Hard Salami</li>
-            <li>Honey Maple Ham</li>
-            <li>Honey Turkey</li>
-            <li>Liverwurst</li>
-            <li>Mortadella</li>
-            <li>Pancetta</li>
-            <li>Pepperoni</li>
-            <li>Peppermill Turkey</li>
-            <li>Prosciutto Di Parma (imported)</li>
-            <li>Prosciutto San Danielle</li>
-            <li>Prosciuttini</li>
-            <li>Prosciutto and Mozzarella Swirl</li>
-            <li>Roast Beef</li>
-            <li>Roasted Turkey Breast</li>
-            <li>Smoked Turkey</li>
-            <li>Sopresata (Hot or Sweet)</li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="menu-section-header">
-            <h3 class="menu-section-title">Artisan Cheeses</h3>
-          </div>
-          <ul class="menu-items">
-            <li>Alpine Lace (low sodium)</li>
-            <li>Baby Swiss</li>
-            <li>Domestic Slicing Provolone</li>
-            <li>Finlandia Swiss</li>
-            <li>Gorgonzola Cheese</li>
-            <li>Home Made Mozzarella</li>
-            <li>Imp. Crotonese (Table Cheese)</li>
-            <li>Imported Sharp Provolone</li>
-            <li>Land O Lakes (Yellow and White American)</li>
-            <li>Lorraine Swiss (low sodium)</li>
-            <li>Muenster</li>
-            <li>Parmigiano Reggiano (aged 2yrs)</li>
-            <li>Ricotta Salata (for grating)</li>
-            <li>Ricotta Salata (Table Cheese)</li>
-            <li>Genuine Romano Cheese</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SALADS, SOUPS, GROCERY -->
-  <section id="salads-soups">
-    <div class="container">
-      <h2>Salads &amp; soups</h2>
-      <p class="section-intro">
-        Fresh salads and homemade soups, perfect on their own or alongside your favorite sandwich.
-      </p>
-
-      <div class="menu-section">
-        <div class="menu-section-header">
-          <h3 class="menu-section-title">Fresh Salads</h3>
-          <p class="menu-section-subtitle">
-            Crisp and delicious, prepared fresh daily.
+        <div class="card">
+          <h3>Visit Andrea's Salumeria</h3>
+          <p><strong>Address:</strong> Jersey City, New Jersey</p>
+          <p><strong>Phone:</strong> (XXX) XXX‑XXXX</p>
+          <p><strong>Hours:</strong></p>
+          <p>Mon–Sat: 9:00am – 6:00pm</p>
+          <p>Sun: Closed</p>
+          <p style="margin-top: 0.75rem;">
+            Call ahead for large orders, catering trays, and special occasions.
           </p>
         </div>
-        <div class="menu-columns">
-          <div>
-            <ul class="menu-items">
-              <li>
-                <span class="menu-item-name">Chef Salad</span>
-                <div class="menu-item-desc">
-                  Ham, Salami, Mild Provolone or Mozzarella
-                </div>
-              </li>
-              <li>
-                <span class="menu-item-name">Tuna Chef</span>
-                <div class="menu-item-desc">
-                  Tuna, lettuce, tomatoes, and peppers
-                </div>
-              </li>
-              <li>
-                <span class="menu-item-name">Tossed</span>
-                <div class="menu-item-desc">
-                  Lettuce, tomatoes, and peppers
-                </div>
-              </li>
-              <li>
-                <span class="menu-item-name">Mozzarella Salad</span>
-                <div class="menu-item-desc">
-                  Mozzarella and fresh tomatoes
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
 
-      <div class="menu-section">
-        <div class="menu-section-header">
-          <h3 class="menu-section-title">Pasta Salads</h3>
-        </div>
-        <div class="menu-columns">
-          <div>
-            <ul class="menu-items">
-              <li><span class="menu-item-name">Tuna Pasta</span></li>
-              <li><span class="menu-item-name">Cold Cut Pasta</span></li>
-              <li><span class="menu-item-name">Vegetable Pasta</span></li>
-              <li>
-                <span class="menu-item-name">Mediterranean Pesto Salad</span>
-                <div class="menu-item-desc">Summer only</div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-section">
-        <div class="menu-section-header">
-          <h3 class="menu-section-title">Hot Soups</h3>
-          <p class="menu-section-subtitle">
-            Served September through May, plus a Friday pasta dish offered all year.
+        <div class="card" id="story">
+          <h3>Our Story Since 1975</h3>
+          <p>
+            Andrea's Salumeria has been part of the neighborhood for nearly fifty years —
+            a family-run Italian deli where regulars are greeted by name and newcomers feel like
+            they’ve been coming in for years.
+          </p>
+          <p>
+            From fresh mozzarella pulled daily to imported Italian groceries, cured meats, and
+            classic sandwiches, everything is prepared with old-world care and pride.
+          </p>
+          <p>
+            Whether you're grabbing a hero for lunch or feeding a packed table for the holidays,
+            Andrea’s is here for your everyday meals and your biggest celebrations.
           </p>
         </div>
-        <div class="menu-columns">
-          <div>
-            <ul class="menu-items">
-              <li><span class="menu-item-name">Monday</span> — Pasta Fagioli</li>
-              <li><span class="menu-item-name">Tuesday</span> — Chicken Noodle</li>
-              <li><span class="menu-item-name">Wednesday</span> — Minestrone</li>
-              <li><span class="menu-item-name">Thursday</span> — Lentil and Pasta</li>
-              <li>
-                <span class="menu-item-name">Friday Pasta Dish (all year)</span>
-                <div class="menu-item-desc">
-                  Zitti in a plum tomato sauce Filetto Di Pomodoro with straw mushrooms and prosciutto
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
       </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Andrea's Salumeria • Jersey City, NJ</div>
+      <div>Homemade mozzarella • Italian sandwiches • Party trays • Groceries</div>
     </div>
-  </section>
+  </footer>
+</div>
 
-  <!-- GROCERY & SPECIALTY ITEMS + CATERING -->
-  <section id="grocery">
-    <div class="container">
-      <h2>Grocery &amp; specialty items</h2>
-      <p class="section-intro">
-        Discover unique Italian imports, house‑made delicacies, and sweet treats — perfect for everyday meals or special occasions.
-      </p>
-
-      <div class="menu-section">
-        <div class="menu-section-header">
-          <h3 class="menu-section-title">Specialty &amp; Grocery Items</h3>
-        </div>
-        <div class="menu-columns">
-          <div>
-            <ul class="menu-items">
-              <li>Dry Sausage Sticks (hot or sweet)</li>
-              <li>Dry Sopresata Sticks (hot or sweet)</li>
-              <li>Imported Italian Pastas</li>
-              <li>Truffle Products</li>
-              <li>Marinated Olives, Peppers &amp; Tomatoes</li>
-              <li>Eajiär Products</li>
-              <li>Macinated Olives</li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="menu-category-title">Sweet Treats</h4>
-            <ul class="menu-items">
-              <li>
-                <span class="menu-item-name">Cannoli</span>
-                <div class="menu-item-desc">
-                  Small &amp; large, stuffed fresh to order
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-section">
-        <div class="menu-section-header">
-          <h3 class="menu-section-title">Catering Services</h3>
-        </div>
-        <p class="section-intro">
-          From casual gatherings to elegant events, Andrea's Salumeria offers catering tailored to your needs.
-          Please inquire in‑store or by phone for details and menu options.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <h2>Our story</h2>
-      <div class="about-grid">
-        <div>
-          <div class="about-accent">Family‑owned &amp; operated • Since 1975</div>
-          <div class="about-text">
-            <p>
-              Welcome to Andrea's Salumeria, a cherished family‑owned and operated business proudly serving our
-              community since 1975. For nearly five decades, we have been dedicated to providing authentic Italian
-              deli meats, cheeses, and specialties, upholding a tradition of quality and passion passed down
-              through generations.
-            </p>
-            <p>
-              From our homemade mozzarella and famous sandwiches to imported Italian groceries and catering,
-              every product reflects our commitment to genuine flavor and warm hospitality. Whether you’re
-              grabbing a quick bite, picking up ingredients for Sunday dinner, or planning a celebration,
-              Andrea’s Salumeria is here to share our family’s love for exceptional food with you.
-            </p>
-          </div>
-        </div>
-
-        <aside class="about-card">
-          <h3 class="menu-section-title">What makes Andrea’s special</h3>
-          <ul class="menu-items mt-small">
-            <li>Nearly 50 years serving our neighborhood</li>
-            <li>Homemade mozzarella crafted in‑house</li>
-            <li>Classic Italian sandwiches and daily specials</li>
-            <li>Fine deli meats, cheeses, and imported groceries</li>
-            <li>Catering available for gatherings and events</li>
-          </ul>
-          <div class="about-meta">
-            Step inside and experience the feel of a traditional Italian salumeria — no shortcuts, just real food.
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- VISIT / CONTACT -->
-  <section id="visit">
-    <div class="container">
-      <h2>Visit Andrea’s Salumeria</h2>
-      <p class="section-intro">
-        Stop by for a sandwich, pick up deli meats and cheeses, or explore our shelves of Italian specialties.
-      </p>
-
-      <div class="info-grid">
-        <div>
-          <div class="info-label">Address</div>
-          <div class="info-value">
-            Andrea's Salumeria<br>
-            247 Central Ave #A<br>
-            Jersey City, NJ 07307
-          </div>
-
-          <div class="info-label mt-med">Phone</div>
-          <div class="info-value">
-            (201) 653‑1666
-          </div>
-        </div>
-
-        <div>
-          <div class="info-label">Online</div>
-          <div class="info-value">
-            Instagram: @andreas_247central<br>
-            Yelp: Andrea's Salumeria, Jersey City
-          </div>
-
-          <div class="social-icons">
-            <!-- Instagram -->
-            <a class="social-icon" href="https://www.instagram.com/andreas_247central/" target="_blank" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="#7b1b1b" stroke-width="1.6"/>
-                <circle cx="12" cy="12" r="4.2" fill="none" stroke="#7b1b1b" stroke-width="1.6"/>
-                <circle cx="17.2" cy="6.8" r="1.1" fill="#7b1b1b"/>
-              </svg>
-            </a>
-
-        <!-- Facebook -->
-		<a class="social-icon" href="https://www.facebook.com/profile.php?id=100054514566838" target="_blank" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="10" fill="none" stroke="#3b5998" stroke-width="1.6"/>
-                <path d="M13 8h1.5V6H13c-2 0-3.5 1.3-3.5 3.6V11H8v2h1.5v5h2v-5h1.8l0.7-2H11.5v-1.3C11.5 8.7 12 8 13 8z"
-                      fill="#3b5998"/>
-              </svg>
-            </a>
-
-            <!-- Yelp -->
-            <a class="social-icon" href="https://www.yelp.com/biz/andrea-salumeria-jersey-city?osq=Andrea+Salumeria" target="_blank" aria-label="Yelp">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="10" fill="none" stroke="#af0606" stroke-width="1.6"/>
-                <path d="M9.2 5.3c-.2-.8.4-1.5 1.2-1.6l.6-.1c.7-.1 1.4.4 1.5 1.1l.6 4c.1.7-.4 1.3-1.1 1.4l-.3 0c-.5.1-1-.2-1.2-.7L9.2 5.3zM7 9.7l-3.3-.8C3 8.8 2.6 9 2.4 9.4l-.2.6c-.2.7.2 1.4.9 1.6l3.7 1c.6.2 1.3-.2 1.5-.8.1-.4 0-.9-.4-1.2L7 9.7zm2.1 3.3l-2.1 3c-.4.6-.2 1.4.4 1.8l.5.3c.6.3 1.4.1 1.8-.5l1.9-3.1c.3-.6.1-1.3-.5-1.7-.5-.3-1.2-.2-1.6.2zM13.6 13.8l1.1 3.5c.2.7.9 1.1 1.6.9l.6-.2c.7-.2 1.1-.9 1-1.6l-1-4c-.2-.7-.9-1.1-1.6-.9-.7.2-1.1.9-1 1.6zM15.2 10.4l2.9-2.5c.5-.4.6-1.2.2-1.7l-.4-.5c-.5-.6-1.3-.6-1.8-.1l-2.5 2.7c-.5.5-.4 1.3.1 1.8.4.4 1.1.4 1.5.1z"
-                      fill="#af0606"/>
-              </svg>
-            </a>
-
-            <!-- Google Maps -->
-            <a class="social-icon" href="https://www.google.com/maps/place/Andrea+Salumeria/data=!4m2!3m1!1s0x0:0x61689fe0e35ef8a5?sa=X" target="_blank" aria-label="Google Maps">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 2.5c-3.1 0-5.5 2.4-5.5 5.6 0 3.8 3.4 7.9 5 9.7.3.3.8.3 1.1 0 1.6-1.8 5-5.9 5-9.7 0-3.2-2.4-5.6-5.6-5.6z"
-                      fill="none" stroke="#4285f4" stroke-width="1.6"/>
-                <circle cx="12" cy="8.1" r="2.2" fill="#4285f4"/>
-              </svg>
-            </a>
-          </div>
-
-          <button class="google-review-btn" onclick="openGoogleReview()">
-            <span class="star">★</span>
-            <span>Leave a Review on Google</span>
-          </button>
-        </div>
-
-        <div>
-          <div class="info-label">Hours</div>
-          <div class="info-value">
-            Monday – Friday: [Hours]<br>
-            Saturday: [Hours]<br>
-            Sunday: [Hours / Closed]
-          </div>
-          <div class="info-label mt-med">Services</div>
-          <div class="info-value">
-            Takeout, catering, and Italian grocery shopping.
-          </div>
-        </div>
-      </div>
-
-      <div class="map-embed mt-med">
-        <!-- Embedded Google Map for Andrea's Salumeria -->
-        <iframe
-		src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.040028179708!2d-74.051889!3d40.748652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c257f7f1f3c4d1%3A0x61689fe0e35ef8a5!2sAndrea%20Salumeria!5e0!3m2!1sen2sus!4v1700000000000"
-	  	width="100%"
-		height="300"
-		style="border:0;"
-		allowfullscreen=""
-		loading="lazy"
-		referrerpolicy="no-referrer-when-downgrade">
-	</iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- PHOTO GALLERY -->
-  <section id="gallery">
-    <div class="container">
-      <h2>From the counter &amp; kitchen</h2>
-      <p class="section-intro">
-        A glimpse of the sandwiches, specialties, and moments that make Andrea’s Salumeria a neighborhood favorite.
-        New photos appear here as they’re added to our gallery.
-      </p>
-
-      <div id="gallery-grid">
-        <!-- Gallery items are injected here by JavaScript -->
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<section id="coming-soon">
-  <div class="container">
-    <h2>Coming Soon: Andrea’s Apparel</h2>
-    <p class="section-intro">
-      Show your love for Andrea’s Salumeria with exclusive merch — shirts, hats, hoodies, and more.
-    </p>
-
-    <div class="card">
-      <div class="card-body">
-        We’re designing a line of apparel inspired by our 50-year heritage. 
-        Stay tuned for launch details and pre-order information.
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container footer-inner">
-    <div>© <span id="year"></span> Andrea's Salumeria. All rights reserved.</div>
-    <div class="footer-meta">
-      <span>Fine Italian Deli &amp; Grocer • Since 1975</span>
-      <span>Homemade Mozzarella • Famous Italian Sandwiches • Imported Specialties</span>
-    </div>
-  </div>
-</footer>
-
+<!-- Dynamic loaders -->
 <script>
-  // ========= MOBILE NAV =========
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.nav-links');
+  // Set footer year
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-  }
+  async function loadImages(folder, containerId) {
+    try {
+      const response = await fetch(`photos/${folder}/manifest.json`);
+      if (!response.ok) {
+        console.error("Could not load manifest for", folder, response.status);
+        return;
+      }
+      const data = await response.json();
+      const container = document.getElementById(containerId);
+      if (!container) return;
 
-  // ========= FOOTER YEAR =========
-  const yearEl = document.getElementById('year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
-
-  // ========= HERO ROTATOR =========
-  // IMPORTANT:
-  // 1) Place hero photos in: photos/hero/
-  // 2) Add their filenames to this array
-  // 3) The script will randomize order on each page load
-
-  let heroImages = [
-    "photos/hero/Prosciutto Di Parma Imported Sharp Provolone Mozz.jpg",
-    "photos/hero/Wassup.jpg"
-    // Add more hero images here, e.g.:
-    // "photos/hero/combo.jpg",
-    // "photos/hero/mozzarella-stretch.jpg"
-  ];
-
-  // Shuffle heroImages array for random order
-  function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-  }
-
-  shuffle(heroImages);
-
-  const heroVisual = document.getElementById('hero-visual');
-  let currentHeroIndex = 0;
-  const heroDuration = 6000; // 6 seconds per image
-
-  function showHeroImage(index) {
-    if (!heroVisual || heroImages.length === 0) return;
-    const src = heroImages[index];
-    heroVisual.style.opacity = 0;
-    // Small timeout to let opacity transition reset
-    setTimeout(() => {
-      heroVisual.style.backgroundImage = `url("${src}")`;
-      // Trigger "active" state which handles zoom + fade
-      requestAnimationFrame(() => {
-        heroVisual.classList.add('hero-visual--active');
-        heroVisual.style.opacity = 1;
+      data.images.forEach(filename => {
+        const img = document.createElement("img");
+        img.src = `photos/${folder}/${filename}`;
+        img.alt = filename;
+        img.loading = "lazy";
+        container.appendChild(img);
       });
-    }, 200);
-  }
-
-  function rotateHero() {
-    if (heroImages.length <= 1) {
-      showHeroImage(0);
-      return;
+    } catch (error) {
+      console.error("Error loading images for", folder, error);
     }
-    heroVisual.classList.remove('hero-visual--active');
-    currentHeroIndex = (currentHeroIndex + 1) % heroImages.length;
-    showHeroImage(currentHeroIndex);
   }
 
-  if (heroImages.length > 0 && heroVisual) {
-    showHeroImage(currentHeroIndex);
-    setInterval(rotateHero, heroDuration);
-  }
-
-  // ========= GALLERY =========
-  // IMPORTANT:
-  // 1) Place gallery photos in: photos/gallery/
-  // 2) Add their filenames to this array
-  // 3) The script will render them automatically
-
-  const galleryImages = [
-    "photos/gallery/homemade Pesto Pasta.jpg"
-    // Add more gallery images here, e.g.:
-    // "photos/gallery/combo-sandwich.jpg",
-    // "photos/gallery/deli-counter.jpg",
-    // "photos/gallery/storefront.jpg"
-  ];
-
-  const galleryGrid = document.getElementById('gallery-grid');
-
-  if (galleryGrid && galleryImages.length > 0) {
-    galleryImages.forEach(src => {
-      const item = document.createElement('figure');
-      item.className = 'gallery-item';
-      const img = document.createElement('img');
-      img.src = src;
-      img.alt = "";
-      img.className = 'gallery-photo';
-      item.appendChild(img);
-      galleryGrid.appendChild(item);
-    });
-  }
-
-  // ========= GOOGLE REVIEW BUTTON =========
-  function openGoogleReview() {
-    // For now, we’ll use the main Maps listing link.
-    // If you later obtain the direct "write a review" URL, replace below.
-    const reviewUrl = "https://www.google.com/maps/place/Andrea+Salumeria/data=!4m2!3m1!1s0x0:0x61689fe0e35ef8a5?sa=X";
-    window.open(reviewUrl, "_blank");
-  }
+  // Load hero & gallery from their manifests
+  loadImages("hero", "hero-container");
+  loadImages("gallery", "gallery-container");
 </script>
 
 </body>
-
 </html>
-
