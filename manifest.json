@@ -1,0 +1,15 @@
+{
+  "name": "Andrea’s Salumeria",
+  "short_name": "Andrea’s",
+  "start_url": "/andreas.salumeria/",
+  "display": "standalone",
+  "background_color": "#F5EFE6",
+  "theme_color": "#4A281E",
+  "icons": [
+    {
+      "src": "photos/logo/andreas-header-light.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
