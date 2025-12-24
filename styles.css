@@ -280,4 +280,13 @@ section h2 {
   section {
     padding: 45px 0;
   }
+
+}
+/* ========== About ========== */
+.about-branding {
+  display: block;
+  max-width: 280px;
+  margin: 0 auto 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
