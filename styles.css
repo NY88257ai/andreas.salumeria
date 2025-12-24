@@ -40,7 +40,8 @@ a {
 }
 
 #site-logo {
-  height: 60px;
+  max-height: 80px;
+  width: auto;
 }
 
 .main-nav a {
@@ -296,4 +297,5 @@ section h2 {
   max-width: 140px;
   margin-bottom: 14px;
 }
+
 
