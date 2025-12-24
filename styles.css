@@ -31,6 +31,14 @@ a {
   position: sticky;
   top: 0;
   z-index: 100;
+  min-height: 80px; /* prevents collapse */
+}
+
+#site-logo {
+  max-height: 44px;
+  width: auto;
+  display: block;
+  flex-shrink: 0; /* prevents flexbox from crushing it */
 }
 
 #site-logo {
@@ -299,5 +307,6 @@ section h2 {
     margin-bottom: 14px;
   }
 }
+
 
 
