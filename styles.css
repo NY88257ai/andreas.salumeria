@@ -34,9 +34,10 @@ a {
 }
 
 #site-logo {
-  max-height: 36px;
-  width: auto;
-  display: block;
+  max-height: 80px !important;
+  width: auto !important;
+  display: block !important;
+  border: 2px solid red !important;
 }
 
 .header-inner {
@@ -298,4 +299,5 @@ section h2 {
     margin-bottom: 14px;
   }
 }
+
 
