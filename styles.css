@@ -23,7 +23,6 @@ a {
   margin: 0 auto;
 }
 
-/* ========== HEADER ========== */
 .site-header {
   background: #F5EFE6;
   padding: 10px 0;
@@ -31,21 +30,19 @@ a {
   position: sticky;
   top: 0;
   z-index: 100;
-  min-height: 80px; /* prevents collapse */
+  min-height: 80px;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 #site-logo {
   max-height: 44px;
   width: auto;
-  display: block;
-  flex-shrink: 0; /* prevents flexbox from crushing it */
-}
-
-#site-logo {
-  max-height: 80px !important;
-  width: auto !important;
-  display: block !important;
-  border: 2px solid red !important;
+  flex-shrink: 0;
 }
 
 .header-inner {
@@ -307,6 +304,7 @@ section h2 {
     margin-bottom: 14px;
   }
 }
+
 
 
 
