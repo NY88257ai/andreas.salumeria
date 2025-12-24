@@ -32,18 +32,17 @@ a {
   top: 0;
   z-index: 100;
 }
-
+#site-logo {
+  max-height: 44px;
+  width: auto;
+  display: block;
+}
 .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-#site-logo {
-  height: 40px;
-  width: auto;
-  object-fit: contain;
-}
 .site-banner img {
   width: 100%;
   max-height: 320px;
@@ -303,6 +302,7 @@ section h2 {
   max-width: 140px;
   margin-bottom: 14px;
 }
+
 
 
 
