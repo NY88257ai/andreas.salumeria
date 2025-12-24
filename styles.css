@@ -39,9 +39,10 @@ a {
   align-items: center;
 }
 
-#site-logo {
-  max-height: 80px;
-  width: auto;
+.site-banner img {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
 }
 
 .main-nav a {
@@ -297,5 +298,6 @@ section h2 {
   max-width: 140px;
   margin-bottom: 14px;
 }
+
 
 
