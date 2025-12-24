@@ -285,8 +285,15 @@ section h2 {
 /* ========== About ========== */
 .about-branding {
   display: block;
-  max-width: 280px;
-  margin: 0 auto 25px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 180px;
+  margin: 0 auto 18px;
+  border-radius: 6px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  opacity: 0.95;
 }
+
+.about-branding {
+  max-width: 140px;
+  margin-bottom: 14px;
+}
+
